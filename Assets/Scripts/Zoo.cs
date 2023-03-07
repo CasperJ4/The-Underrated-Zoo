@@ -12,10 +12,20 @@ public class Zoo : MonoBehaviour
     public List<AnimalPen> Pens;
     public List<Animal> AllAnimals;
 
+    public Vector3[] SpawnLocs;
+
     protected void Start()
     {
         Pens = new List<AnimalPen>();
         AllAnimals = new List<Animal>();
+
+        GameObject.FindGameObjectWithTag("SpwanLocations").transform.position;
+
+
+
+        SpawnLocs = new List<Vector3>();
+
+
 
         for (int i = 0; i < 10; i++)
         {
@@ -38,6 +48,7 @@ public class Zoo : MonoBehaviour
         switch (counter)
         {
             //Spawn 5 pigs using a dictionary
+            // Sheeps
             case 0:
                 Dictionary<GameObject, int> spawns = new Dictionary<GameObject, int>();
                 spawns.Add(AnimalPrefabs[0], 5);
@@ -45,6 +56,7 @@ public class Zoo : MonoBehaviour
                 break;
 
             //Spawn 50 cats using a 2D array
+            // Dogs
             case 1:
                 int[][] matrix = new int[10][];
                 for (int i = 0; i < matrix.Length; i++)
