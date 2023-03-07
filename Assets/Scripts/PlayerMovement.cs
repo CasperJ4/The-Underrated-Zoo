@@ -4,20 +4,66 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    CharacterController cha;
-    Vector3 moveSpeed;
+    [Header("Movement")]
+    public float moveSpeed; 
 
-    // Start is called before the first frame update
-    void Start()
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+
+    public Transform orientation; 
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    private void Start()
     {
-        cha = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        moveSpeed = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        cha.Move(moveSpeed * 100 * Time.deltaTime);
+        // ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        MyInput();
+
+        // handle drag
+        if(grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
+            
+
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+    }
+
+    private void MovePlayer()
+    {
+        // calculate movement direction
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
     }
 }
