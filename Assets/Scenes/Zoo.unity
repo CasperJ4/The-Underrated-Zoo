@@ -155,6 +155,7 @@ MonoBehaviour:
   AnimalPrefabs:
   - {fileID: 6517551964478740236, guid: 7a9789e55aa1fb642af7a8edd276f13b, type: 3}
   - {fileID: 6517551964478740236, guid: f8304f0b8548b9141a1ba19cafe63420, type: 3}
+  - {fileID: 6517551964478740236, guid: f8304f0b8548b9141a1ba19cafe63420, type: 3}
   AnimalPenPrefab: {fileID: 7109028269910634932, guid: 3c039efbb3299c445ad0095762cf7172, type: 3}
   Pens: []
   AllAnimals: []
