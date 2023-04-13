@@ -26,8 +26,6 @@ public class Zoo : MonoBehaviour
 
         for (int i = 0; i < spawnLocations.Length; i++)
         {
-            print("Started run: " + i);
-
             Vector3 spawn = spawnLocations[i].transform.position;
             AnimalPen pen = Spawner(i, spawn);
             AllAnimals.AddRange(pen.Animals);
@@ -45,16 +43,8 @@ public class Zoo : MonoBehaviour
 
         Dictionary<GameObject, int> spawns = new Dictionary<GameObject, int>();
 
-        try
-        {
-
             spawns.Add(AnimalPrefabs[AnimalPrefabWish[counter]], AnimalSpawnCount[counter]);
             pen.SpawnAnimals(spawns);
-        }
-        catch (System.OverflowException)
-        {
-
-        }
 
         return pen;
     }
