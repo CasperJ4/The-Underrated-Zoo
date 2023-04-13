@@ -158,7 +158,9 @@ MonoBehaviour:
   AnimalPenPrefab: {fileID: 7109028269910634932, guid: 3c039efbb3299c445ad0095762cf7172, type: 3}
   Pens: []
   AllAnimals: []
-  SpawnLocs: []
+  AnimalSpawnCount: 0100000001000000010000000100000001000000010000000100000001000000
+  AnimalPrefabWish: 0100000001000000010000000100000001000000010000000100000001000000
+  spawnLocations: []
 --- !u!4 &4481321
 Transform:
   m_ObjectHideFlags: 0
@@ -1924,7 +1926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035648636}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 187.03, y: 6.03, z: -388.32}
+  m_LocalPosition: {x: 187.03, y: 5.68, z: -388.75}
   m_LocalScale: {x: 0.5, y: 1, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
