@@ -22,9 +22,10 @@ public class Zoo : MonoBehaviour
         Pens = new List<AnimalPen>();
         AllAnimals = new List<Animal>();
 
-        spawnLocations = GameObject.FindGameObjectsWithTag("SpawnLocations");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("SpawnLocations");
+        spawnLocations = gameObjects;
 
-        for (int i = 0; i < spawnLocations.Length; i++)
+        for (int i = 0; i < 8; i++)
         {
             Vector3 spawn = spawnLocations[i].transform.position;
             AnimalPen pen = Spawner(i, spawn);
@@ -43,8 +44,8 @@ public class Zoo : MonoBehaviour
 
         Dictionary<GameObject, int> spawns = new Dictionary<GameObject, int>();
 
-            spawns.Add(AnimalPrefabs[AnimalPrefabWish[counter]], AnimalSpawnCount[counter]);
-            pen.SpawnAnimals(spawns);
+        spawns.Add(AnimalPrefabs[AnimalPrefabWish[counter]], AnimalSpawnCount[counter]);
+        pen.SpawnAnimals(spawns);
 
         return pen;
     }
