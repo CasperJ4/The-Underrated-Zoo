@@ -10,6 +10,6 @@ public class CameraMovement : MonoBehaviour
     {
         transform.position = cameraPosition.position;
     }
-    
+
 
 }
